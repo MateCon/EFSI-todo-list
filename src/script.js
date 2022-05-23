@@ -12,14 +12,11 @@ const createTodoElement = (todo, todos, container) => {
     element.addEventListener("click", () => {
         todo.isCompleted = !todo.isCompleted;
         if (todo.isCompleted) {
-            console.log(new Date() - todo.creationDate);
-            console.log();
             if (!shortestTodo || new Date() - todo.creationDate < shortestTodo.completionDate - shortestTodo.creationDate)
                 shortestTodo = todo;
             todo.completionDate = new Date();
         }
         element.classList.toggle("completed");
-        console.log(shortestTodo);
     });
     const cross = document.createElement("span");
     cross.innerHTML = "X";
