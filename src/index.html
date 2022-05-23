@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="../dist/output.css">
+</head>
+<body class="absolute w-screen h-screen flex justify-center p-10 bg-slate-50">
+    <main class="w-screen max-w-md bg-white shadow-md flex flex-col">
+        <form id="todo-form" class="flex">
+            <input type="text" class="border flex-1 bg-transparent px-4">
+            <button type="submit" class="px-4 py-2 bg-cyan-500">Submit</button>
+        </form>
+        <div id="todo-container" class="overflow-y-scroll flex-1"></div>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>
