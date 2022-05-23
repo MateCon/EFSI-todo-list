@@ -4,9 +4,14 @@ let shortestTodo = null;
 
 const createTodoElement = (todo, todos, container) => {
     const element = document.createElement("div");
+    const textContainer = document.createElement("div");
     const text = document.createElement("p");
     text.innerHTML = todo.value;
-    element.appendChild(text);
+    const checkmark = document.createElement("span");
+    checkmark.innerHTML = "✓";
+    textContainer.appendChild(checkmark);
+    textContainer.appendChild(text);
+    element.appendChild(textContainer);
     element.classList.add("todo");
     if (todo.isCompleted) element.classList.add("completed");
     element.addEventListener("click", () => {

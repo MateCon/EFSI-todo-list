@@ -8,15 +8,23 @@
             odd:bg-gray-100 hover:bg-gray-200;
     }
 
-    .todo span {
+    .todo > div {
+        @apply flex gap-4;
+    }
+
+    .todo > div span {
+        @apply text-green-500;
+    }
+
+    .todo > span {
         @apply text-red-500 font-bold hidden z-10;
     }
 
     .completed p {
-        @apply line-through;
+        @apply line-through text-gray-400;
     }
 
-    .completed span {
+    .completed > span {
         @apply block;
     }
 }

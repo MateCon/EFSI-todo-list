@@ -574,7 +574,27 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
-.todo span {
+.todo > div {
+  display: flex;
+  gap: 1rem;
+}
+
+.\!todo > div {
+  display: flex;
+  gap: 1rem;
+}
+
+.todo > div span {
+  --tw-text-opacity: 1;
+  color: rgb(34 197 94 / var(--tw-text-opacity));
+}
+
+.\!todo > div span {
+  --tw-text-opacity: 1;
+  color: rgb(34 197 94 / var(--tw-text-opacity));
+}
+
+.todo > span {
   z-index: 10;
   display: none;
   font-weight: 700;
@@ -582,7 +602,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
-.\!todo span {
+.\!todo > span {
   z-index: 10;
   display: none;
   font-weight: 700;
@@ -591,11 +611,13 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .completed p {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
   -webkit-text-decoration-line: line-through;
           text-decoration-line: line-through;
 }
 
-.completed span {
+.completed > span {
   display: block;
 }
 
