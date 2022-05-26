@@ -5,11 +5,16 @@ let shortestTodo = null;
 const createTodoElement = (todo, todos, container) => {
     const element = document.createElement("div");
     const textContainer = document.createElement("div");
+    textContainer.style.dispay = "flex";
+    textContainer.style.placeItems = "center";
     const text = document.createElement("p");
     text.innerHTML = todo.value;
+    const checkbox = document.createElement("checkbox");
+    checkbox.className = "checkbox";
     const checkmark = document.createElement("span");
-    checkmark.innerHTML = "✓";
-    textContainer.appendChild(checkmark);
+    checkmark.innerHTML = "";
+    checkbox.appendChild(checkmark);
+    textContainer.appendChild(checkbox);
     textContainer.appendChild(text);
     element.appendChild(textContainer);
     element.classList.add("todo");
@@ -20,6 +25,9 @@ const createTodoElement = (todo, todos, container) => {
             if (!shortestTodo || new Date() - todo.creationDate < shortestTodo.completionDate - shortestTodo.creationDate)
                 shortestTodo = todo;
             todo.completionDate = new Date();
+            checkmark.innerHTML = "✓";
+        } else {
+            checkmark.innerHTML = "";
         }
         element.classList.toggle("completed");
     });

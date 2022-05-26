@@ -17,14 +17,18 @@
     }
 
     .todo > span {
-        @apply text-red-500 font-bold hidden z-10;
+        @apply text-red-500 font-bold hidden z-10 transition;
     }
 
     .completed p {
-        @apply line-through text-gray-400;
+        @apply text-gray-400;
     }
 
     .completed > span {
         @apply block;
+    }
+
+    .checkbox {
+        @apply w-[18px] h-[18px] border border-gray-400 grid place-content-center text-sm;
     }
 }
