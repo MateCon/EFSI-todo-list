@@ -12,13 +12,14 @@ const createTodoElement = (todo, todos, container) => {
     const checkbox = document.createElement("checkbox");
     checkbox.className = "checkbox";
     const checkmark = document.createElement("span");
-    checkmark.innerHTML = "";
+    checkmark.innerHTML = todo.isCompleted ? "✓" : "";
     checkbox.appendChild(checkmark);
     textContainer.appendChild(checkbox);
     textContainer.appendChild(text);
     element.appendChild(textContainer);
     element.classList.add("todo");
     if (todo.isCompleted) element.classList.add("completed");
+
     element.addEventListener("click", () => {
         todo.isCompleted = !todo.isCompleted;
         if (todo.isCompleted) {
@@ -31,6 +32,7 @@ const createTodoElement = (todo, todos, container) => {
         }
         element.classList.toggle("completed");
     });
+
     const cross = document.createElement("span");
     cross.innerHTML = "X";
     cross.addEventListener("click", () => {
@@ -41,6 +43,7 @@ const createTodoElement = (todo, todos, container) => {
             }
         }
     });
+
     element.appendChild(cross);
     return element;
 }
@@ -66,6 +69,7 @@ document.getElementById("todo-form").addEventListener("submit", (e) => {
         completionDate: null,
         id: index
     });
+
     index++;
     e.target[0].value = "";
 
