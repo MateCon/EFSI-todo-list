@@ -4,20 +4,25 @@ let shortestTodo = null;
 
 const createTodoElement = (todo, todos, container) => {
     const element = document.createElement("div");
+    element.classList.add("todo");
     const textContainer = document.createElement("div");
     textContainer.style.dispay = "flex";
     textContainer.style.placeItems = "center";
     const text = document.createElement("p");
+    text.classList.add("transition");
     text.innerHTML = todo.value;
     const checkbox = document.createElement("checkbox");
     checkbox.className = "checkbox";
     const checkmark = document.createElement("span");
-    checkmark.innerHTML = todo.isCompleted ? "✓" : "";
+    checkmark.innerHTML = "✓";
+    checkmark.classList.add("transition");
+    checkmark.classList.add("duration-400");
+    if (!todo.isCompleted) checkmark.style.opacity = 0;
+
     checkbox.appendChild(checkmark);
     textContainer.appendChild(checkbox);
     textContainer.appendChild(text);
     element.appendChild(textContainer);
-    element.classList.add("todo");
     if (todo.isCompleted) element.classList.add("completed");
 
     element.addEventListener("click", () => {
@@ -26,9 +31,9 @@ const createTodoElement = (todo, todos, container) => {
             if (!shortestTodo || new Date() - todo.creationDate < shortestTodo.completionDate - shortestTodo.creationDate)
                 shortestTodo = todo;
             todo.completionDate = new Date();
-            checkmark.innerHTML = "✓";
+            checkmark.style.opacity = 100;
         } else {
-            checkmark.innerHTML = "";
+            checkmark.style.opacity = 0;
         }
         element.classList.toggle("completed");
     });
